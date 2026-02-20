@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Experience - Coli Initiatives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #0a0a0a;
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      /* Floating Animation for team veiws */
+      @keyframes teamfloatRight {
+        0% {
+          transform: translateX(0px);
+        }
+        50% {
+          transform: translateX(15px);
+        }
+        100% {
+          transform: translateX(0px);
+        }
+      }
+
+      @keyframes teamfloatUp {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .float-right-text {
+        animation: teamfloatRight 6s ease-in-out infinite;
+      }
+
+      .float-up-text {
+        animation: teamfloatUp 5s ease-in-out infinite;
+      }
+
+      /* Gradient Text */
+      .gradient-text {
+        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Glass Card Effect */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Quote Mark Styling */
+      .quote-mark {
+        font-family: "Playfair Display", serif;
+        font-size: 120px;
+        line-height: 1;
+        color: rgba(59, 130, 246, 0.2);
+        position: absolute;
+        top: -20px;
+        left: -10px;
+      }
+
+      /* Decorative Elements */
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      /* Scroll Reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #3b82f6;
+        border-radius: 4px;
+      }
+
+      /* Image Hover Effect */
+      .team-image {
+        transition: all 0.5s ease;
+      }
+
+      .team-image:hover {
+        transform: scale(1.05) rotate(2deg);
+      }
+
+      /* Text Shadow for Readability */
+      .text-glow {
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Team Experience Section -->
+    <section
+      id="team-experience"
+      class="relative py-24 px-6 overflow-hidden bg-black"
+    >
+      <!-- Background Effects -->
+      <div class="glow-orb w-96 h-96 bg-blue-600/30 top-0 left-0"></div>
+      <div class="glow-orb w-80 h-80 bg-purple-600/20 bottom-0 right-0"></div>
+
+      <!-- Grid Pattern -->
+      <div
+        class="absolute inset-0 opacity-5"
+        style="
+          background-image: radial-gradient(
+            circle at 1px 1px,
+            white 1px,
+            transparent 0
+          );
+          background-size: 40px 40px;
+        "
+      ></div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-20 reveal">
+          <span
+            class="inline-block px-4 py-2 bg-blue-600/10 border border-blue-500/30 rounded-full mb-4"
+          >
+            <span
+              class="text-blue-400 font-semibold text-sm tracking-wider uppercase"
+              >Our Team</span
+            >
+          </span>
+          <h2 class="text-4xl md:text-6xl font-bold mb-4">
+            Voices of <span class="gradient-text">Impact</span>
+          </h2>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-6"
+          ></div>
+          <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+            Hear from the dedicated individuals who bring our mission to life
+            every day
+          </p>
+        </div>
+
+        <!-- Team Member 1 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-24 reveal">
+          <!-- Image Side -->
+          <div class="relative order-2 lg:order-1">
+            <div
+              class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent z-10"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop"
+                alt="Sarah Johnson - Program Director"
+                class="team-image w-full h-[500px] object-cover"
+              />
+              <!-- Experience Badge -->
+              <div class="absolute bottom-6 left-6 z-20">
+                <div class="glass-card px-4 py-2 rounded-full">
+                  <span class="text-blue-400 font-semibold text-sm"
+                    >5 Years Experience</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Decorative Frame -->
+            <div
+              class="absolute -bottom-4 -right-4 w-full h-full border-2 border-blue-500/30 rounded-2xl -z-10"
+            ></div>
+          </div>
+
+          <!-- Content Side - Floating Right -->
+          <div class="order-1 lg:order-2 relative">
+            <div class="quote-mark">"</div>
+            <div class="float-right-text pl-8">
+              <div class="mb-6">
+                <h3 class="text-3xl font-bold text-white mb-2">
+                  Sarah Johnson
+                </h3>
+                <p class="text-blue-400 font-semibold text-lg">
+                  Program Director
+                </p>
+              </div>
+
+              <blockquote class="relative z-10">
+                <p
+                  class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-6 font-light italic"
+                >
+                  "Working with Coli Initiatives has transformed my perspective
+                  on community development. Every morning, I wake up knowing
+                  that the programs we design directly impact children's
+                  futures. The moment I see a child read their first book or
+                  graduate from our scholarship program, I'm reminded why this
+                  work matters."
+                </p>
+
+                <div class="space-y-4 text-gray-400">
+                  <p class="float-up-text" style="animation-delay: 0.5s">
+                    "I've spent five years building educational outreach
+                    programs across rural Nigeria. The challenges are
+                    real—limited resources, infrastructure gaps, and cultural
+                    barriers. But when a parent tells you their child is the
+                    first in the family to attend school, every obstacle becomes
+                    worth overcoming."
+                  </p>
+
+                  <p class="float-up-text" style="animation-delay: 1s">
+                    "My most profound experience was meeting Amina, a
+                    12-year-old who walked 3 hours daily to attend our makeshift
+                    classroom. Today, she's studying medicine at university.
+                    Stories like hers fuel my commitment to expanding our
+                    reach."
+                  </p>
+                </div>
+              </blockquote>
+
+              <!-- Signature -->
+              <div class="mt-8 pt-6 border-t border-white/10">
+                <p class="text-sm text-gray-500 uppercase tracking-wider">
+                  Key Achievement
+                </p>
+                <p class="text-white font-semibold mt-1">
+                  Launched 12 learning centers • 2,000+ students enrolled
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-24 reveal">
+          <!-- Content Side - Floating Right (on mobile this comes first, on desktop image comes first) -->
+          <div class="relative order-1">
+            <div class="quote-mark">"</div>
+            <div class="float-right-text pl-8" style="animation-delay: 1s">
+              <div class="mb-6">
+                <h3 class="text-3xl font-bold text-white mb-2">
+                  Dr. Michael Okonkwo
+                </h3>
+                <p class="text-blue-400 font-semibold text-lg">
+                  Medical Outreach Lead
+                </p>
+              </div>
+
+              <blockquote class="relative z-10">
+                <p
+                  class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-6 font-light italic"
+                >
+                  "Healthcare is a fundamental right, not a privilege. In my
+                  three years with Coli Initiatives, I've witnessed the
+                  devastating impact of preventable diseases in underserved
+                  communities. Our mobile clinics don't just treat symptoms—we
+                  restore dignity and hope."
+                </p>
+
+                <div class="space-y-4 text-gray-400">
+                  <p class="float-up-text" style="animation-delay: 1.5s">
+                    "I remember our first medical camp in a remote village. We
+                    arrived with basic equipment and a team of volunteers. By
+                    sunset, we had treated over 300 patients, performed
+                    emergency procedures, and identified critical cases
+                    requiring hospital referral."
+                  </p>
+
+                  <p class="float-up-text" style="animation-delay: 2s">
+                    "The most rewarding aspect is training local health workers.
+                    We're not just providing temporary relief; we're building
+                    sustainable healthcare systems. Last month, a community
+                    health worker I trained independently managed a malaria
+                    outbreak. That's true empowerment."
+                  </p>
+                </div>
+              </blockquote>
+
+              <!-- Signature -->
+              <div class="mt-8 pt-6 border-t border-white/10">
+                <p class="text-sm text-gray-500 uppercase tracking-wider">
+                  Key Achievement
+                </p>
+                <p class="text-white font-semibold mt-1">
+                  45,000+ patients treated • 15 health workers trained
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Side -->
+          <div class="relative order-2">
+            <div
+              class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-tl from-purple-600/20 to-transparent z-10"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=1000&fit=crop"
+                alt="Dr. Michael Okonkwo - Medical Outreach Lead"
+                class="team-image w-full h-[500px] object-cover"
+              />
+              <!-- Experience Badge -->
+              <div class="absolute bottom-6 right-6 z-20">
+                <div class="glass-card px-4 py-2 rounded-full">
+                  <span class="text-blue-400 font-semibold text-sm"
+                    >3 Years Experience</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Decorative Frame -->
+            <div
+              class="absolute -top-4 -left-4 w-full h-full border-2 border-purple-500/30 rounded-2xl -z-10"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center reveal">
+          <!-- Image Side -->
+          <div class="relative order-2 lg:order-1">
+            <div
+              class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent z-10"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=1000&fit=crop"
+                alt="Amara Nwosu - Community Engagement Manager"
+                class="team-image w-full h-[500px] object-cover"
+              />
+              <!-- Experience Badge -->
+              <div class="absolute bottom-6 left-6 z-20">
+                <div class="glass-card px-4 py-2 rounded-full">
+                  <span class="text-blue-400 font-semibold text-sm"
+                    >4 Years Experience</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Decorative Frame -->
+            <div
+              class="absolute -bottom-4 -right-4 w-full h-full border-2 border-blue-500/30 rounded-2xl -z-10"
+            ></div>
+          </div>
+
+          <!-- Content Side - Floating Right -->
+          <div class="order-1 lg:order-2 relative">
+            <div class="quote-mark">"</div>
+            <div class="float-right-text pl-8" style="animation-delay: 2s">
+              <div class="mb-6">
+                <h3 class="text-3xl font-bold text-white mb-2">Amara Nwosu</h3>
+                <p class="text-blue-400 font-semibold text-lg">
+                  Community Engagement Manager
+                </p>
+              </div>
+
+              <blockquote class="relative z-10">
+                <p
+                  class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-6 font-light italic"
+                >
+                  "Building bridges between our organization and the communities
+                  we serve requires authenticity and deep listening. I grew up
+                  in one of the villages we now support, so every program we
+                  launch feels deeply personal."
+                </p>
+
+                <div class="space-y-4 text-gray-400">
+                  <p class="float-up-text" style="animation-delay: 2.5s">
+                    "My role involves understanding unique community needs,
+                    navigating cultural nuances, and ensuring our interventions
+                    are sustainable. When we proposed a girls' education
+                    initiative, I worked with village elders for months to
+                    address their concerns. Today, that program has 500 enrolled
+                    students."
+                  </p>
+
+                  <p class="float-up-text" style="animation-delay: 3s">
+                    "The community doesn't just receive our help—they shape it.
+                    Our most successful programs emerged from listening sessions
+                    under mango trees, where mothers shared their dreams for
+                    their children. That's the Coli difference: we serve with,
+                    not for."
+                  </p>
+                </div>
+              </blockquote>
+
+              <!-- Signature -->
+              <div class="mt-8 pt-6 border-t border-white/10">
+                <p class="text-sm text-gray-500 uppercase tracking-wider">
+                  Key Achievement
+                </p>
+                <p class="text-white font-semibold mt-1">
+                  Established partnerships with 25 communities • 90% program
+                  retention rate
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center mt-24 reveal">
+          <p class="text-gray-400 text-lg mb-6">Inspired by their stories?</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="#join"
+              class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-600/30"
+            >
+              <span>Join Our Team</span>
+              <svg
+                class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+            <a
+              href="#volunteer"
+              class="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/20 hover:border-blue-500 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-blue-600/10"
+            >
+              <span>Volunteer</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Scroll Reveal Animation
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // Parallax Effect on Scroll
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const orbs = document.querySelectorAll(".glow-orb");
+
+        orbs.forEach((orb, index) => {
+          const speed = 0.5 + index * 0.2;
+          orb.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+      });
+    </script>
+  </body>
+</html>

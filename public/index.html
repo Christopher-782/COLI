@@ -1,0 +1,1231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Col Initiatives</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="logo">
+          <div class="logo-icon">
+            <img
+              src="https://res.cloudinary.com/deoqw88yb/image/upload/v1771578462/Copilot_20260220_100618_g9l2ts.png"
+              alt=""
+              height="42px"
+            />
+          </div>
+          <span class="logo-text">Coli Initiatives</span>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#programs" class="nav-link">Programs</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#donate" class="nav-link donate">Donate</a></li>
+        </ul>
+
+        <button class="mobile-toggle" onclick="toggleMobileMenu()">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="#programs">Programs</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#donate" class="donate">Donate</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section with Carousel -->
+    <section id="home" class="relative h-screen overflow-hidden">
+      <!-- Particle Container -->
+      <div
+        id="particles"
+        class="absolute inset-0 z-20 pointer-events-none"
+      ></div>
+
+      <!-- Carousel Slides -->
+      <div class="absolute inset-0 z-0" id="heroCarousel">
+        <!-- Slide 1 -->
+        <div class="hero-slide active" data-slide="0">
+          <img
+            src="https://res.cloudinary.com/deoqw88yb/image/upload/v1771580448/20251220_175410_l7o3mt.jpg"
+            alt="Children smiling and happy"
+          />
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide" data-slide="1">
+          <img
+            src="https://res.cloudinary.com/deoqw88yb/image/upload/v1771594013/20251220_130622_ghnbqe.jpg"
+            alt="Community outreach program"
+          />
+        </div>
+      </div>
+
+      <!-- Animated Gradient Overlay -->
+      <div class="absolute inset-0 gradient-overlay z-10"></div>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar z-30" id="progressBar"></div>
+
+      <!-- Content -->
+      <div
+        class="relative z-20 flex flex-col justify-center items-center h-full text-center px-6"
+      >
+        <!-- Floating Badge -->
+        <div class="floating-element mb-8">
+          <span
+            class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600/20 backdrop-blur-sm border border-blue-500/30 rounded-full text-blue-400 font-semibold text-sm tracking-wider"
+          >
+            <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+            Children Of Light Initiatives
+          </span>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight max-w-5xl">
+          <span class="block text-reveal">Changing Lives</span>
+          <span
+            class="block text-reveal-delay-1 bg-gradient-to-r from-blue-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
+          >
+            One Child at a Time
+          </span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p
+          class="text-lg md:text-2xl text-gray-300 max-w-3xl mb-10 leading-relaxed text-reveal-delay-2"
+        >
+          Join us in our mission to provide education, healthcare, and hope to
+          children in need around the world.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap justify-center gap-4 text-reveal-delay-3">
+          <a
+            href="#donate"
+            class="group glow-button inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+          >
+            <svg
+              class="w-6 h-6 group-hover:rotate-12 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
+              />
+            </svg>
+            <span>Donate Now</span>
+          </a>
+
+          <a
+            href="#join"
+            class="group inline-flex items-center gap-3 border-2 border-white/30 hover:border-blue-500 hover:bg-blue-600/10 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+          >
+            <svg
+              class="w-6 h-6 group-hover:rotate-12 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            <span>Join the Team</span>
+          </a>
+        </div>
+
+        <!-- Slide Indicators -->
+        <div
+          class="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 z-30"
+        >
+          <button
+            class="slide-indicator active w-10 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all"
+            data-slide="0"
+            onclick="goToSlide(0)"
+          ></button>
+          <button
+            class="slide-indicator w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all"
+            data-slide="1"
+            onclick="goToSlide(1)"
+          ></button>
+        </div>
+
+        <!-- Slide Counter -->
+        <div
+          class="absolute bottom-12 right-8 text-white/60 font-mono text-sm z-30 hidden md:block"
+        >
+          <span id="currentSlide">01</span> / <span id="totalSlides">02</span>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div
+          class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-30"
+        >
+          <svg
+            class="w-6 h-6 text-white/60"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
+      </div>
+    </section>
+    <!-- Programs Section -->
+    <section id="programs" class="bg-black">
+      <div
+        class="py-20 px-6 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden"
+      >
+        <!-- Background Glow Effect -->
+        <div class="absolute inset-0 opacity-30">
+          <div
+            class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full filter blur-[120px]"
+          ></div>
+          <div
+            class="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[120px]"
+          ></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+          <!-- Section Header -->
+          <div class="text-center mb-16 space-y-4">
+            <span
+              class="inline-block px-4 py-2 bg-blue-600/10 border border-blue-500/30 rounded-full"
+            >
+              <span class="text-blue-400 font-semibold text-sm tracking-wider"
+                >MAKING A DIFFERENCE</span
+              >
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+              Our
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600"
+                >Programs</span
+              >
+            </h2>
+            <div
+              class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto rounded-full"
+            ></div>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto mt-6">
+              Transforming communities through targeted initiatives that create
+              lasting impact and empower lives across the globe.
+            </p>
+          </div>
+
+          <!-- Programs Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1: Educational Outreach -->
+            <div
+              class="group relative bg-gradient-to-b from-gray-900 to-gray-950 rounded-2xl p-8 border border-gray-800 hover:border-blue-500/50 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-blue-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"
+              ></div>
+              <div class="relative mb-6">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/20 group-hover:shadow-blue-500/40 transition-all duration-300 group-hover:scale-110"
+                >
+                  <svg
+                    class="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.8"
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-gray-900 group-hover:animate-pulse"
+                ></div>
+              </div>
+              <h3
+                class="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300"
+              >
+                Educational Outreach
+              </h3>
+              <p class="text-gray-400 leading-relaxed mb-6">
+                Empowering minds through scholarships, school supplies, and
+                after-school programs. Building brighter futures with quality
+                education for underprivileged children.
+              </p>
+              <div class="flex items-center gap-4 mb-6">
+                <div class="flex -space-x-2">
+                  <div
+                    class="w-6 h-6 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center"
+                  >
+                    <span class="text-xs text-blue-400">1k+</span>
+                  </div>
+                </div>
+                <span class="text-xs text-gray-500">Students Impacted</span>
+              </div>
+              <a
+                href="#"
+                class="inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] shadow-lg shadow-blue-600/20 hover:shadow-blue-500/30"
+              >
+                <span>Learn More</span>
+                <svg
+                  class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </a>
+              <div
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-1/2 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent transition-all duration-500"
+              ></div>
+            </div>
+
+            <!-- Card 2: Medical Outreach -->
+            <div
+              class="group relative bg-gradient-to-b from-gray-900 to-gray-950 rounded-2xl p-8 border border-gray-800 hover:border-blue-500/50 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-blue-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"
+              ></div>
+              <div class="relative mb-6">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/20 group-hover:shadow-blue-500/40 transition-all duration-300 group-hover:scale-110"
+                >
+                  <svg
+                    class="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.8"
+                      d="M4.5 12.75l6 6 9-13.5"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.8"
+                      d="M19.5 12.75h-15"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-gray-900 group-hover:animate-pulse"
+                ></div>
+              </div>
+              <h3
+                class="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300"
+              >
+                Medical Outreach
+              </h3>
+              <p class="text-gray-400 leading-relaxed mb-6">
+                Providing essential healthcare services, free medical camps, and
+                health education to underserved communities where access is
+                limited.
+              </p>
+              <div class="flex items-center gap-4 mb-6">
+                <div class="flex -space-x-2">
+                  <div
+                    class="w-6 h-6 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center"
+                  >
+                    <span class="text-xs text-blue-400">5k+</span>
+                  </div>
+                </div>
+                <span class="text-xs text-gray-500">Patients Treated</span>
+              </div>
+              <a
+                href="#"
+                class="inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] shadow-lg shadow-blue-600/20 hover:shadow-blue-500/30"
+              >
+                <span>Learn More</span>
+                <svg
+                  class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </a>
+              <div
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-1/2 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent transition-all duration-500"
+              ></div>
+            </div>
+
+            <!-- Card 3: Charity Outreach -->
+            <div
+              class="group relative bg-gradient-to-b from-gray-900 to-gray-950 rounded-2xl p-8 border border-gray-800 hover:border-blue-500/50 shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-blue-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl"
+              ></div>
+              <div class="relative mb-6">
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-600/20 group-hover:shadow-blue-500/40 transition-all duration-300 group-hover:scale-110"
+                >
+                  <svg
+                    class="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.8"
+                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-gray-900 group-hover:animate-pulse"
+                ></div>
+              </div>
+              <h3
+                class="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300"
+              >
+                Charity Outreach
+              </h3>
+              <p class="text-gray-400 leading-relaxed mb-6">
+                Organizing community events, food drives, and fundraising
+                initiatives that bring people together to support those in need.
+              </p>
+              <div class="flex items-center gap-4 mb-6">
+                <div class="flex -space-x-2">
+                  <div
+                    class="w-6 h-6 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center"
+                  >
+                    <span class="text-xs text-blue-400">50+</span>
+                  </div>
+                </div>
+                <span class="text-xs text-gray-500">Events Yearly</span>
+              </div>
+              <a
+                href="#"
+                class="inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 transform group-hover:scale-[1.02] shadow-lg shadow-blue-600/20 hover:shadow-blue-500/30"
+              >
+                <span>Learn More</span>
+                <svg
+                  class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </a>
+              <div
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-1/2 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent transition-all duration-500"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="text-center mt-16">
+            <a
+              href="#"
+              class="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-blue-600/50 hover:border-blue-500 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-blue-600/10 group"
+            >
+              <span>View All Programs</span>
+              <svg
+                class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 px-6 bg-black">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span
+            class="inline-block px-4 py-2 bg-blue-600/10 border border-blue-500/20 rounded-full mb-4"
+          >
+            <span class="text-blue-400 font-semibold text-sm tracking-wider"
+              >OUR IMPACT IN ACTION</span
+            >
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Photo <span class="text-blue-400">Gallery</span>
+          </h2>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto rounded-full"
+          ></div>
+          <p class="text-gray-400 text-lg max-w-2xl mx-auto mt-6">
+            Capturing moments of hope, transformation, and community impact
+            across our programs
+          </p>
+        </div>
+
+        <!-- Loading State -->
+        <div id="galleryLoading" class="text-center py-12">
+          <div
+            class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"
+          ></div>
+          <p class="text-gray-400 mt-4">Loading gallery...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="galleryError" class="hidden text-center py-12">
+          <svg
+            class="w-16 h-16 text-red-500 mx-auto mb-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <p class="text-gray-400">
+            Failed to load gallery images. Please try again later.
+          </p>
+          <button
+            onclick="loadGallery()"
+            class="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition"
+          >
+            Retry
+          </button>
+        </div>
+
+        <!-- Empty State -->
+        <div id="galleryEmpty" class="hidden text-center py-12">
+          <svg
+            class="w-16 h-16 text-gray-600 mx-auto mb-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+          <p class="text-gray-400">No images available at the moment.</p>
+        </div>
+
+        <!-- Gallery Carousel -->
+        <div id="galleryContainer" class="relative hidden">
+          <div class="gallery-container overflow-hidden rounded-2xl">
+            <div
+              class="flex transition-transform duration-500 ease-out"
+              id="galleryTrack"
+            >
+              <!-- Slides will be dynamically inserted here -->
+            </div>
+          </div>
+
+          <!-- Navigation Arrows -->
+          <button
+            class="nav-arrow absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center text-white z-20 bg-black/50 hover:bg-blue-600/80 transition-all"
+            id="prevSlide"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            class="nav-arrow absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center text-white z-20 bg-black/50 hover:bg-blue-600/80 transition-all"
+            id="nextSlide"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+
+          <!-- Dot Indicators -->
+          <div class="flex justify-center gap-2 mt-8" id="dotIndicators">
+            <!-- Dots will be dynamically inserted here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder's Story Section -->
+    <section
+      class="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-black via-gray-900 to-blue-950"
+    >
+      <!-- Background Overlay with Pattern - FIXED: Removed problematic inline SVG data URI -->
+      <div class="absolute inset-0 opacity-10">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern
+              id="grid"
+              width="60"
+              height="60"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 60 0 L 0 0 0 60"
+                fill="none"
+                stroke="#3b82f6"
+                stroke-width="0.5"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
+
+      <!-- Gradient Overlays -->
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/50"
+      ></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-transparent"
+      ></div>
+
+      <!-- Animated Glow Effects -->
+      <div
+        class="absolute top-20 left-10 w-72 h-72 bg-blue-600/20 rounded-full filter blur-[100px] animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-20 right-10 w-96 h-96 bg-blue-800/20 rounded-full filter blur-[120px] animate-pulse"
+        style="animation-delay: 2s"
+      ></div>
+
+      <!-- Main Content Container -->
+      <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <span
+            class="inline-block px-4 py-2 bg-blue-600/10 border border-blue-500/20 rounded-full mb-4"
+          >
+            <span class="text-blue-400 font-semibold text-sm tracking-wider"
+              >MEET OUR FOUNDER</span
+            >
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Our Founder's
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600"
+              >Story</span
+            >
+          </h2>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto rounded-full"
+          ></div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Image Column -->
+          <div class="relative group order-2 lg:order-1">
+            <div
+              class="relative rounded-2xl overflow-hidden shadow-2xl border border-blue-500/20 transform transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-blue-500/30"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+                alt="Portrait of Coli"
+                class="w-full h-[500px] md:h-[600px] object-cover object-center"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-transparent mix-blend-overlay"
+              ></div>
+              <div
+                class="absolute top-6 left-6 w-16 h-16 border-t-2 border-l-2 border-blue-400/40 rounded-tl-2xl"
+              ></div>
+              <div
+                class="absolute bottom-6 right-6 w-16 h-16 border-b-2 border-r-2 border-blue-400/40 rounded-br-2xl"
+              ></div>
+              <div
+                class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/80 to-transparent"
+              >
+                <p
+                  class="text-blue-400 text-sm font-semibold tracking-wider mb-2"
+                >
+                  FOUNDER & VISIONARY
+                </p>
+                <h3 class="text-3xl font-bold text-white">Coli</h3>
+                <div class="flex items-center gap-2 mt-3">
+                  <div class="w-12 h-0.5 bg-blue-500"></div>
+                  <span class="text-gray-300 text-sm"
+                    >Changing lives since 2015</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="absolute -bottom-4 -right-4 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-4 shadow-xl hidden lg:block"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Text Column -->
+          <div class="relative space-y-6 order-1 lg:order-2">
+            <div
+              class="absolute -top-8 -left-4 text-8xl text-blue-600/10 select-none playfair"
+            >
+              "
+            </div>
+
+            <div class="space-y-6 text-gray-300 leading-relaxed">
+              <p class="text-lg animate-fade-in-up">
+                <span class="text-blue-400 font-bold text-2xl mr-1">C</span
+                >oli's vision began with a simple yet powerful belief: that
+                compassion, when paired with action, can transform lives.
+                Growing up, she witnessed firsthand the struggles faced by
+                children and families in underserved communities. These
+                experiences ignited her determination to create an organization
+                that would bring hope, education, and opportunity to those who
+                needed it most.
+              </p>
+
+              <p
+                class="text-lg animate-fade-in-up"
+                style="
+                  animation-delay: 0.2s;
+                  opacity: 0;
+                  animation-fill-mode: forwards;
+                "
+              >
+                Starting with limited resources, Coli faced countless
+                challenges—yet her unwavering dedication and empathy guided
+                every step. What began as a small initiative has grown into a
+                thriving NGO, driven by the idea that every act of kindness can
+                ripple outward to change the world.
+              </p>
+
+              <p
+                class="text-lg animate-fade-in-up"
+                style="
+                  animation-delay: 0.4s;
+                  opacity: 0;
+                  animation-fill-mode: forwards;
+                "
+              >
+                Today, Coli's legacy continues to inspire our work. Her story
+                reminds us that one person's courage can spark a movement of
+                generosity and impact.
+                <span class="text-blue-400 font-semibold"
+                  >Join us in continuing Coli's mission</span
+                >
+                by supporting our programs and helping us reach more lives.
+              </p>
+            </div>
+
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-wrap gap-4 mt-8">
+              <a
+                href="/donate"
+                class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-600/30 hover:shadow-blue-500/50"
+              >
+                <span>Donate Now</span>
+                <svg
+                  class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="/volunteer"
+                class="group inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-blue-600/50 hover:border-blue-500 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-blue-600/10"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
+                <span>Volunteer With Us</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Experience Section -->
+    <section
+      id="team-experience"
+      class="relative py-24 px-6 overflow-hidden bg-black"
+    >
+      <!-- Background Effects -->
+      <div class="glow-orb w-96 h-96 bg-blue-600/30 top-0 left-0"></div>
+      <div class="glow-orb w-80 h-80 bg-purple-600/20 bottom-0 right-0"></div>
+
+      <!-- Grid Pattern -->
+      <div
+        class="absolute inset-0 opacity-5"
+        style="
+          background-image: radial-gradient(
+            circle at 1px 1px,
+            white 1px,
+            transparent 0
+          );
+          background-size: 40px 40px;
+        "
+      ></div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-20 reveal">
+          <span
+            class="inline-block px-4 py-2 bg-blue-600/10 border border-blue-500/30 rounded-full mb-4"
+          >
+            <span
+              class="text-blue-400 font-semibold text-sm tracking-wider uppercase"
+              >Our Team</span
+            >
+          </span>
+          <h2 class="text-4xl md:text-6xl font-bold mb-4">
+            Voices of <span class="gradient-text">Impact</span>
+          </h2>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-6"
+          ></div>
+          <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+            Hear from the dedicated individuals who bring our mission to life
+            every day
+          </p>
+        </div>
+
+        <!-- Team Member 1 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-24 reveal">
+          <!-- Image Side -->
+          <div class="relative order-2 lg:order-1">
+            <div
+              class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent z-10"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop"
+                alt="Sarah Johnson - Program Director"
+                class="team-image w-full h-[500px] object-cover"
+              />
+              <!-- Experience Badge -->
+              <div class="absolute bottom-6 left-6 z-20">
+                <div class="glass-card px-4 py-2 rounded-full">
+                  <span class="text-blue-400 font-semibold text-sm"
+                    >5 Years Experience</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Decorative Frame -->
+            <div
+              class="absolute -bottom-4 -right-4 w-full h-full border-2 border-blue-500/30 rounded-2xl -z-10"
+            ></div>
+          </div>
+
+          <!-- Content Side - Floating Right -->
+          <div class="order-1 lg:order-2 relative">
+            <div class="quote-mark">"</div>
+            <div class="float-right-text pl-8">
+              <div class="mb-6">
+                <h3 class="text-3xl font-bold text-white mb-2">
+                  Sarah Johnson
+                </h3>
+                <p class="text-blue-400 font-semibold text-lg">
+                  Program Director
+                </p>
+              </div>
+
+              <blockquote class="relative z-10">
+                <p
+                  class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-6 font-light italic"
+                >
+                  "Working with Coli Initiatives has transformed my perspective
+                  on community development. Every morning, I wake up knowing
+                  that the programs we design directly impact children's
+                  futures. The moment I see a child read their first book or
+                  graduate from our scholarship program, I'm reminded why this
+                  work matters."
+                </p>
+
+                <div class="space-y-4 text-gray-400">
+                  <p class="float-up-text" style="animation-delay: 0.5s">
+                    "I've spent five years building educational outreach
+                    programs across rural Nigeria. The challenges are
+                    real—limited resources, infrastructure gaps, and cultural
+                    barriers. But when a parent tells you their child is the
+                    first in the family to attend school, every obstacle becomes
+                    worth overcoming."
+                  </p>
+
+                  <p class="float-up-text" style="animation-delay: 1s">
+                    "My most profound experience was meeting Amina, a
+                    12-year-old who walked 3 hours daily to attend our makeshift
+                    classroom. Today, she's studying medicine at university.
+                    Stories like hers fuel my commitment to expanding our
+                    reach."
+                  </p>
+                </div>
+              </blockquote>
+
+              <!-- Signature -->
+              <div class="mt-8 pt-6 border-t border-white/10">
+                <p class="text-sm text-gray-500 uppercase tracking-wider">
+                  Key Achievement
+                </p>
+                <p class="text-white font-semibold mt-1">
+                  Launched 12 learning centers • 2,000+ students enrolled
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-24 reveal">
+          <!-- Content Side - Floating Right (on mobile this comes first, on desktop image comes first) -->
+          <div class="relative order-1">
+            <div class="quote-mark">"</div>
+            <div class="float-right-text pl-8" style="animation-delay: 1s">
+              <div class="mb-6">
+                <h3 class="text-3xl font-bold text-white mb-2">
+                  Dr. Michael Okonkwo
+                </h3>
+                <p class="text-blue-400 font-semibold text-lg">
+                  Medical Outreach Lead
+                </p>
+              </div>
+
+              <blockquote class="relative z-10">
+                <p
+                  class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-6 font-light italic"
+                >
+                  "Healthcare is a fundamental right, not a privilege. In my
+                  three years with Coli Initiatives, I've witnessed the
+                  devastating impact of preventable diseases in underserved
+                  communities. Our mobile clinics don't just treat symptoms—we
+                  restore dignity and hope."
+                </p>
+
+                <div class="space-y-4 text-gray-400">
+                  <p class="float-up-text" style="animation-delay: 1.5s">
+                    "I remember our first medical camp in a remote village. We
+                    arrived with basic equipment and a team of volunteers. By
+                    sunset, we had treated over 300 patients, performed
+                    emergency procedures, and identified critical cases
+                    requiring hospital referral."
+                  </p>
+
+                  <p class="float-up-text" style="animation-delay: 2s">
+                    "The most rewarding aspect is training local health workers.
+                    We're not just providing temporary relief; we're building
+                    sustainable healthcare systems. Last month, a community
+                    health worker I trained independently managed a malaria
+                    outbreak. That's true empowerment."
+                  </p>
+                </div>
+              </blockquote>
+
+              <!-- Signature -->
+              <div class="mt-8 pt-6 border-t border-white/10">
+                <p class="text-sm text-gray-500 uppercase tracking-wider">
+                  Key Achievement
+                </p>
+                <p class="text-white font-semibold mt-1">
+                  45,000+ patients treated • 15 health workers trained
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Side -->
+          <div class="relative order-2">
+            <div
+              class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-tl from-purple-600/20 to-transparent z-10"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=1000&fit=crop"
+                alt="Dr. Michael Okonkwo - Medical Outreach Lead"
+                class="team-image w-full h-[500px] object-cover"
+              />
+              <!-- Experience Badge -->
+              <div class="absolute bottom-6 right-6 z-20">
+                <div class="glass-card px-4 py-2 rounded-full">
+                  <span class="text-blue-400 font-semibold text-sm"
+                    >3 Years Experience</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Decorative Frame -->
+            <div
+              class="absolute -top-4 -left-4 w-full h-full border-2 border-purple-500/30 rounded-2xl -z-10"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="grid lg:grid-cols-2 gap-12 items-center reveal">
+          <!-- Image Side -->
+          <div class="relative order-2 lg:order-1">
+            <div
+              class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent z-10"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=1000&fit=crop"
+                alt="Amara Nwosu - Community Engagement Manager"
+                class="team-image w-full h-[500px] object-cover"
+              />
+              <!-- Experience Badge -->
+              <div class="absolute bottom-6 left-6 z-20">
+                <div class="glass-card px-4 py-2 rounded-full">
+                  <span class="text-blue-400 font-semibold text-sm"
+                    >4 Years Experience</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Decorative Frame -->
+            <div
+              class="absolute -bottom-4 -right-4 w-full h-full border-2 border-blue-500/30 rounded-2xl -z-10"
+            ></div>
+          </div>
+
+          <!-- Content Side - Floating Right -->
+          <div class="order-1 lg:order-2 relative">
+            <div class="quote-mark">"</div>
+            <div class="float-right-text pl-8" style="animation-delay: 2s">
+              <div class="mb-6">
+                <h3 class="text-3xl font-bold text-white mb-2">Amara Nwosu</h3>
+                <p class="text-blue-400 font-semibold text-lg">
+                  Community Engagement Manager
+                </p>
+              </div>
+
+              <blockquote class="relative z-10">
+                <p
+                  class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-6 font-light italic"
+                >
+                  "Building bridges between our organization and the communities
+                  we serve requires authenticity and deep listening. I grew up
+                  in one of the villages we now support, so every program we
+                  launch feels deeply personal."
+                </p>
+
+                <div class="space-y-4 text-gray-400">
+                  <p class="float-up-text" style="animation-delay: 2.5s">
+                    "My role involves understanding unique community needs,
+                    navigating cultural nuances, and ensuring our interventions
+                    are sustainable. When we proposed a girls' education
+                    initiative, I worked with village elders for months to
+                    address their concerns. Today, that program has 500 enrolled
+                    students."
+                  </p>
+
+                  <p class="float-up-text" style="animation-delay: 3s">
+                    "The community doesn't just receive our help—they shape it.
+                    Our most successful programs emerged from listening sessions
+                    under mango trees, where mothers shared their dreams for
+                    their children. That's the Coli difference: we serve with,
+                    not for."
+                  </p>
+                </div>
+              </blockquote>
+
+              <!-- Signature -->
+              <div class="mt-8 pt-6 border-t border-white/10">
+                <p class="text-sm text-gray-500 uppercase tracking-wider">
+                  Key Achievement
+                </p>
+                <p class="text-white font-semibold mt-1">
+                  Established partnerships with 25 communities • 90% program
+                  retention rate
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center mt-24 reveal">
+          <p class="text-gray-400 text-lg mb-6">Inspired by their stories?</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="#join"
+              class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-600/30"
+            >
+              <span>Join Our Team</span>
+              <svg
+                class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+            <a
+              href="#volunteer"
+              class="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/20 hover:border-blue-500 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-blue-600/10"
+            >
+              <span>Volunteer</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Donate Section -->
+    <section
+      id="donate"
+      class="py-24 px-6 bg-gradient-to-b from-blue-950 to-black"
+    >
+      <div class="max-w-4xl mx-auto text-center">
+        <span
+          class="inline-block px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-full mb-4"
+        >
+          <span class="text-blue-400 font-semibold text-sm tracking-wider"
+            >MAKE A DIFFERENCE</span
+          >
+        </span>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+          Support Our Mission
+        </h2>
+        <p class="text-gray-300 text-lg mb-10">
+          Your donation helps us provide education, healthcare, and hope to
+          children and families in need.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="#"
+            class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-600/30"
+            >Donate Now</a
+          >
+          <a
+            href="#"
+            class="px-8 py-4 bg-transparent border-2 border-white/30 hover:border-blue-500 text-white font-bold rounded-xl transition-all duration-300 hover:bg-blue-600/10"
+            >Become a Partner</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
