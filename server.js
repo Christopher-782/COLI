@@ -4,6 +4,8 @@ const cors = require("cors");
 const dotenv = require("dotenv").config();
 const Gallery = require("./models/Gallary.js");
 const path = require("path");
+const dayjs = require("dayjs");
+const volunteerRouter = require("./router/volunteer.js");
 
 const app = express();
 
@@ -35,6 +37,8 @@ app.get("/Coli/gallary", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch gallery images" });
   }
 });
+
+app.use("/", volunteerRouter);
 
 app.listen(3000, () => {
   console.log("Server running");

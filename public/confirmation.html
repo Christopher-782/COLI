@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coli Foundation · application received</title>
+    <!-- Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* ================= GLOBAL RESET (from your dark theme) ================= */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #f3f4f6;
+        background: #0b0f19;
+        overflow-x: hidden;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ================= ANIMATED MESH BACKGROUND ================= */
+      body::before {
+        content: "";
+        position: fixed;
+        width: 150%;
+        height: 150%;
+        top: -25%;
+        left: -25%;
+        background:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(59, 130, 246, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(139, 92, 246, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(30, 64, 175, 0.2) 0%,
+            transparent 40%
+          ),
+          linear-gradient(-45deg, #0b0f19, #0f172a, #1e1b4b, #0b0f19);
+        background-size: 400% 400%;
+        animation: gradientFlow 15s ease infinite;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(
+          circle at 2px 2px,
+          rgba(59, 130, 246, 0.03) 1px,
+          transparent 0
+        );
+        background-size: 40px 40px;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* ================= NAVBAR (glass) ================= */
+      .navbar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(11, 15, 25, 0.7);
+        backdrop-filter: blur(20px) saturate(180%);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        background: rgba(11, 15, 25, 0.95);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-container {
+        max-width: 1280px;
+        margin: auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .logo-icon {
+        width: 42px;
+        height: 42px;
+        background: linear-gradient(135deg, #000918 0%, #050011 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        animation: pulse-glow 3s ease-in-out infinite;
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+        }
+      }
+
+      .logo-icon svg {
+        width: 24px;
+        height: 24px;
+        color: white;
+      }
+
+      .logo-text {
+        font-size: 22px;
+        font-weight: 800;
+        background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #9ca3af;
+        font-weight: 500;
+        font-size: 15px;
+        position: relative;
+        padding: 8px 0;
+        transition: 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #ffffff;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link.donate {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: white;
+        padding: 12px 28px;
+        border-radius: 9999px;
+        font-weight: 600;
+        border: none;
+      }
+
+      .nav-link.donate::after {
+        display: none;
+      }
+
+      .nav-link.donate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+      }
+
+      /* ===== CONFIRMATION MODAL / DISPLAY MODEL ===== */
+      .confirmation-page {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 24px;
+        position: relative;
+      }
+
+      .confirmation-card {
+        max-width: 680px;
+        width: 100%;
+        background: rgba(17, 25, 40, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 48px;
+        padding: 60px 48px;
+        text-align: center;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+        position: relative;
+        overflow: hidden;
+        animation: cardAppear 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      @keyframes cardAppear {
+        0% {
+          opacity: 0;
+          transform: scale(0.9) translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .confirmation-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 70% 20%,
+          rgba(59, 130, 246, 0.2),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      /* success icon with rotating glow */
+      .success-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 32px;
+        background: linear-gradient(135deg, #1e3a8a, #5b21b6);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        animation:
+          glowPulse 2.5s ease-in-out infinite,
+          float 4s ease-in-out infinite;
+        box-shadow: 0 0 40px rgba(59, 130, 246, 0.7);
+      }
+
+      .success-icon i {
+        font-size: 56px;
+        color: white;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+      }
+
+      @keyframes glowPulse {
+        0%,
+        100% {
+          box-shadow: 0 0 40px rgba(59, 130, 246, 0.7);
+        }
+        50% {
+          box-shadow: 0 0 80px rgba(139, 92, 246, 0.9);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* floating orbs (background) */
+      .floating-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.3;
+        pointer-events: none;
+        z-index: -1;
+      }
+      .orb-1 {
+        width: 400px;
+        height: 400px;
+        background: #3b82f6;
+        top: -150px;
+        left: -150px;
+        animation: orbMove 18s infinite alternate;
+      }
+      .orb-2 {
+        width: 350px;
+        height: 350px;
+        background: #8b5cf6;
+        bottom: -150px;
+        right: -150px;
+        animation: orbMove 20s infinite alternate-reverse;
+      }
+      @keyframes orbMove {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          transform: translate(60px, -40px) scale(1.2);
+        }
+      }
+
+      /* typography */
+      .gradient-text {
+        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .confirmation-card h1 {
+        font-size: 56px;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        letter-spacing: -1px;
+      }
+
+      .thank-you-message {
+        font-size: 22px;
+        color: #d1d5db;
+        margin-bottom: 20px;
+        font-weight: 400;
+      }
+
+      .response-note {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 60px;
+        padding: 16px 32px;
+        display: inline-block;
+        margin: 24px 0;
+        font-size: 18px;
+        color: #a5b4fc;
+        backdrop-filter: blur(10px);
+      }
+
+      .response-note i {
+        color: #4ade80;
+        margin-right: 8px;
+      }
+
+      .next-steps {
+        max-width: 400px;
+        margin: 30px auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        text-align: left;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 24px 32px;
+        border-radius: 32px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .next-steps p {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: #9ca3af;
+        font-size: 16px;
+      }
+
+      .next-steps i {
+        color: #3b82f6;
+        font-size: 20px;
+        width: 28px;
+        text-align: center;
+      }
+
+      /* button group */
+      .action-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 40px;
+      }
+
+      .btn {
+        padding: 16px 36px;
+        border-radius: 9999px;
+        font-weight: 600;
+        font-size: 16px;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: none;
+        cursor: pointer;
+        background: transparent;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: white;
+        box-shadow: 0 0 30px rgba(37, 99, 235, 0.4);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(37, 99, 235, 0.6);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.05);
+        border: 2px solid rgba(59, 130, 246, 0.5);
+        color: #93c5fd;
+        backdrop-filter: blur(10px);
+      }
+      .btn-secondary:hover {
+        background: rgba(59, 130, 246, 0.2);
+        border-color: #3b82f6;
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      /* footer */
+      .footer {
+        background: #030712;
+        padding: 30px 24px;
+        text-align: center;
+        color: #6b7280;
+        border-top: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      /* responsive */
+      @media (max-width: 640px) {
+        .confirmation-card {
+          padding: 40px 24px;
+        }
+        .confirmation-card h1 {
+          font-size: 42px;
+        }
+        .thank-you-message {
+          font-size: 18px;
+        }
+        .response-note {
+          font-size: 16px;
+          padding: 12px 20px;
+        }
+        .action-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://res.cloudinary.com/deoqw88yb/image/upload/v1771578729/Copilot_20260220_100514_hkz9fy.png"
+    />
+  </head>
+  <body>
+    <!-- Navbar (same as your theme) -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="logo">
+          <div class="logo-icon">
+            <img
+              src="https://res.cloudinary.com/deoqw88yb/image/upload/v1771578462/Copilot_20260220_100618_g9l2ts.png"
+              alt=""
+              height="42px"
+            />
+          </div>
+          <span class="logo-text">Coli Initiatives</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#programs" class="nav-link">Programs</a></li>
+          <li><a href="index.html#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#" class="nav-link donate">Donate</a></li>
+        </ul>
+
+        <!-- mobile toggle (simplified) -->
+        <button class="mobile-toggle" style="display: none">☰</button>
+      </div>
+    </nav>
+
+    <!-- CONFIRMATION DISPLAY MODEL (application received) -->
+    <section class="confirmation-page">
+      <!-- background orbs (match your style) -->
+      <div class="floating-orb orb-1"></div>
+      <div class="floating-orb orb-2"></div>
+
+      <div class="confirmation-card">
+        <!-- animated success icon -->
+        <div class="success-icon">
+          <i class="fas fa-check"></i>
+        </div>
+
+        <!-- main message -->
+        <h1><span class="gradient-text">Application</span> Received</h1>
+
+        <div class="thank-you-message">
+          Thank you for volunteering
+          <i class="fas fa-heart" style="color: #f87171; margin-left: 6px"></i>
+        </div>
+
+        <!-- we'll get back to you (highlight) -->
+        <div class="response-note">
+          <i class="fas fa-clock"></i> we will get back to you within 48 hours
+        </div>
+
+        <!-- next steps / what to expect (optional but friendly) -->
+        <div class="next-steps">
+          <p>
+            <i class="fas fa-envelope-open-text"></i> Check your inbox for a
+            confirmation email
+          </p>
+          <p>
+            <i class="fas fa-calendar-check"></i> Our team may schedule a short
+            welcome call
+          </p>
+          <p>
+            <i class="fas fa-hands-helping"></i> Meanwhile, explore our programs
+          </p>
+        </div>
+
+        <!-- action buttons: home / programs (CTA) -->
+        <div class="action-buttons">
+          <a href="index.html" class="btn btn-primary">
+            <i class="fas fa-home"></i> back to home
+          </a>
+          <a href="index.html#programs" class="btn btn-secondary">
+            <i class="fas fa-heart"></i> explore programs
+          </a>
+        </div>
+
+        <!-- tiny note (optional) -->
+        <p style="margin-top: 32px; color: #6b7280; font-size: 13px">
+          <i class="fas fa-shield-alt" style="color: #3b82f6"></i> your data is
+          safe with us
+        </p>
+      </div>
+    </section>
+
+    <!-- simple footer -->
+    <footer class="footer">
+      <p>© 2025 Coli Foundation · together we build futures</p>
+    </footer>
+
+    <!-- tiny script to handle navbar scrolled effect -->
+    <script>
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 10) navbar.classList.add("scrolled");
+        else navbar.classList.remove("scrolled");
+      });
+    </script>
+  </body>
+</html>

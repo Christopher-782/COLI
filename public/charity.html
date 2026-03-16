@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coli Foundation · charity outreach</title>
+    <!-- Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* ================= GLOBAL RESET (dark futuristic theme) ================= */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        line-height: 1.6;
+        color: #f3f4f6;
+        background: #0b0f19;
+        overflow-x: hidden;
+      }
+
+      /* ================= ANIMATED MESH BACKGROUND ================= */
+      body::before {
+        content: "";
+        position: fixed;
+        width: 150%;
+        height: 150%;
+        top: -25%;
+        left: -25%;
+        background:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(59, 130, 246, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(139, 92, 246, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(30, 64, 175, 0.2) 0%,
+            transparent 40%
+          ),
+          linear-gradient(-45deg, #0b0f19, #0f172a, #1e1b4b, #0b0f19);
+        background-size: 400% 400%;
+        animation: gradientFlow 15s ease infinite;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(
+          circle at 2px 2px,
+          rgba(59, 130, 246, 0.03) 1px,
+          transparent 0
+        );
+        background-size: 40px 40px;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* ================= NAVBAR (glass) ================= */
+      .navbar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(11, 15, 25, 0.7);
+        backdrop-filter: blur(20px) saturate(180%);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        background: rgba(11, 15, 25, 0.95);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-container {
+        max-width: 1280px;
+        margin: auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .logo-icon {
+        width: 42px;
+        height: 42px;
+        background: linear-gradient(135deg, #000918 0%, #050011 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        animation: pulse-glow 3s ease-in-out infinite;
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+        }
+      }
+
+      .logo-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+
+      .logo-text {
+        font-size: 22px;
+        font-weight: 800;
+        background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: #9ca3af;
+        font-weight: 500;
+        font-size: 15px;
+        position: relative;
+        padding: 8px 0;
+        transition: 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: #ffffff;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link.donate {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: white;
+        padding: 12px 28px;
+        border-radius: 9999px;
+        font-weight: 600;
+        border: none;
+      }
+
+      .nav-link.donate::after {
+        display: none;
+      }
+
+      .nav-link.donate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+      }
+
+      /* ===== CHARITY OUTREACH PAGE (adapted) ===== */
+      .page-header {
+        text-align: center;
+        padding: 60px 24px 20px;
+      }
+      .page-header h1 {
+        font-size: 56px;
+        font-weight: 800;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #fbbf24, #f97316);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .page-header p {
+        color: #9ca3af;
+        font-size: 20px;
+        max-width: 700px;
+        margin: 16px auto;
+      }
+
+      .charity-container {
+        max-width: 1200px;
+        margin: 0 auto 80px;
+        padding: 0 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+      }
+
+      /* process cards (step by step) */
+      .process-step {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+        background: rgba(17, 25, 40, 0.5);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(245, 158, 11, 0.3);
+        border-radius: 48px;
+        padding: 48px;
+        box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6);
+        position: relative;
+        overflow: hidden;
+      }
+      .process-step::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 30% 40%,
+          rgba(245, 158, 11, 0.1),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .step-number {
+        font-size: 120px;
+        font-weight: 800;
+        line-height: 1;
+        background: linear-gradient(135deg, #f59e0b, #f97316);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 0.3;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-family: "Playfair Display", serif;
+      }
+
+      .step-icon {
+        flex-shrink: 0;
+        width: 110px;
+        height: 110px;
+        background: linear-gradient(135deg, #d97706, #f97316);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+      }
+      .step-icon i {
+        font-size: 52px;
+        color: white;
+      }
+
+      .step-content {
+        flex: 1;
+      }
+      .step-content h2 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: #f0f9ff;
+      }
+      .step-content p {
+        font-size: 18px;
+        color: #bcbcbc;
+        line-height: 1.8;
+      }
+
+      /* alternate layout */
+      .process-step.reverse {
+        flex-direction: row-reverse;
+      }
+
+      /* stats highlight */
+      .impact-highlight {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 40px 0;
+      }
+      .stat-badge {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(245, 158, 11, 0.4);
+        border-radius: 100px;
+        padding: 24px 48px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+      }
+      .stat-badge .number {
+        font-size: 52px;
+        font-weight: 800;
+        background: linear-gradient(135deg, #fbbf24, #f97316);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .stat-badge .label {
+        color: #9ca3af;
+        font-size: 18px;
+        margin-top: 4px;
+      }
+
+      /* floating orbs - charity theme (orange/yellow) */
+      .floating-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.2;
+        pointer-events: none;
+        z-index: -1;
+      }
+      .orb-orange-1 {
+        width: 400px;
+        height: 400px;
+        background: #f97316;
+        top: 5%;
+        left: -5%;
+      }
+      .orb-orange-2 {
+        width: 350px;
+        height: 350px;
+        background: #f59e0b;
+        bottom: 10%;
+        right: -5%;
+      }
+
+      /* footer */
+      .footer {
+        background: #030712;
+        padding: 40px 24px;
+        text-align: center;
+        color: #6b7280;
+        border-top: 1px solid rgba(245, 158, 11, 0.2);
+      }
+
+      @media (max-width: 900px) {
+        .process-step {
+          flex-direction: column;
+          padding: 40px 24px;
+          text-align: center;
+        }
+        .process-step.reverse {
+          flex-direction: column;
+        }
+        .step-number {
+          font-size: 100px;
+        }
+        .step-icon {
+          width: 90px;
+          height: 90px;
+        }
+        .step-icon i {
+          font-size: 42px;
+        }
+      }
+      @media (max-width: 600px) {
+        .page-header h1 {
+          font-size: 42px;
+        }
+        .stat-badge {
+          padding: 16px 32px;
+        }
+        .stat-badge .number {
+          font-size: 40px;
+        }
+      }
+    </style>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://res.cloudinary.com/deoqw88yb/image/upload/v1771578729/Copilot_20260220_100514_hkz9fy.png"
+    />
+  </head>
+  <body>
+    <!-- Navbar (same) -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <img
+              src="https://res.cloudinary.com/deoqw88yb/image/upload/v1771578462/Copilot_20260220_100618_g9l2ts.png"
+              alt="Coli Initiatives logo"
+            />
+          </div>
+          <span class="logo-text">Coli Initiatives</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#programs" class="nav-link">Programs</a></li>
+          <li><a href="index.html#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#" class="nav-link donate">Donate</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- floating orbs background - charity theme -->
+    <div class="floating-orb orb-orange-1"></div>
+    <div class="floating-orb orb-orange-2"></div>
+
+    <!-- page title -->
+    <div class="page-header">
+      <h1><span class="gradient-text">CHARITY</span> OUTREACH</h1>
+      <p>Mobilizing communities through food drives, events, and fundraising</p>
+    </div>
+
+    <!-- main container with step-by-step explanation of HOW charity outreach is done -->
+    <div class="charity-container">
+      <!-- STEP 1: Identifying needs & building partnerships -->
+      <div class="process-step">
+        <div class="step-number">01</div>
+        <div class="step-icon">
+          <i class="fas fa-hand-holding-heart"></i>
+        </div>
+        <div class="step-content">
+          <h2>Identifying needs & building partnerships</h2>
+          <p>
+            We work with local shelters, food banks, and community centers to
+            understand the most urgent needs — food insecurity, clothing,
+            hygiene products, or emergency relief. By partnering with
+            businesses, religious institutions, and civic groups, we create a
+            strong network to amplify our reach and resources.
+          </p>
+        </div>
+      </div>
+
+      <!-- STEP 2: Mobilizing volunteers & collecting donations -->
+      <div class="process-step reverse">
+        <div class="step-number">02</div>
+        <div class="step-icon">
+          <i class="fas fa-truck"></i>
+        </div>
+        <div class="step-content">
+          <h2>Mobilizing volunteers & collecting donations</h2>
+          <p>
+            We launch donation drives through social media, community bulletins,
+            and corporate partners. Volunteers sort, pack, and inventory items —
+            from non‑perishable food and warm clothing to school supplies and
+            toiletries. Collection points are set up at accessible locations,
+            and we coordinate pickups for large donations.
+          </p>
+        </div>
+      </div>
+
+      <!-- STEP 3: Organizing community events & food drives -->
+      <div class="process-step">
+        <div class="step-number">03</div>
+        <div class="step-icon">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="step-content">
+          <h2>Organizing community events & food drives</h2>
+          <p>
+            We host community festivals, charity runs, and benefit concerts to
+            raise both funds and awareness. Simultaneously, targeted food drives
+            ensure regular supply to families in need. These events foster a
+            spirit of togetherness and allow donors to see the direct impact of
+            their generosity.
+          </p>
+        </div>
+      </div>
+
+      <!-- STEP 4: Direct distribution & emergency relief -->
+      <div class="process-step reverse">
+        <div class="step-number">04</div>
+        <div class="step-icon">
+          <i class="fas fa-hand-holding-box"></i>
+        </div>
+        <div class="step-content">
+          <h2>Direct distribution & emergency relief</h2>
+          <p>
+            We organize distribution days where families receive food parcels,
+            hygiene kits, and essential items with dignity and warmth. In times
+            of crisis — floods, displacement, or economic shock — we activate
+            emergency response to deliver immediate aid, including hot meals,
+            blankets, and temporary shelter support.
+          </p>
+        </div>
+      </div>
+
+      <!-- STEP 5: Fundraising & sustainability -->
+      <div class="process-step">
+        <div class="step-number">05</div>
+        <div class="step-icon">
+          <i class="fas fa-hand-holding-usd"></i>
+        </div>
+        <div class="step-content">
+          <h2>Fundraising & sustainability</h2>
+          <p>
+            Beyond one‑time donations, we cultivate recurring donors and
+            corporate sponsorships. Online crowdfunding campaigns, monthly
+            giving circles, and legacy gifts ensure we can plan ahead. Every
+            dollar is tracked and reported transparently, building trust with
+            our supporters.
+          </p>
+        </div>
+      </div>
+
+      <!-- STEP 6: Follow‑up & community empowerment -->
+      <div class="process-step reverse">
+        <div class="step-number">06</div>
+        <div class="step-icon">
+          <i class="fas fa-seedling"></i>
+        </div>
+        <div class="step-content">
+          <h2>Follow‑up & community empowerment</h2>
+          <p>
+            We stay connected with beneficiaries to understand longer‑term
+            needs. Where possible, we link families to job training, financial
+            literacy workshops, and micro‑grant programs. The goal is not just
+            temporary relief but lasting resilience, empowering communities to
+            lift themselves out of poverty.
+          </p>
+        </div>
+      </div>
+
+      <!-- impact stats (reinforce credibility) -->
+      <div class="impact-highlight">
+        <div class="stat-badge">
+          <span class="number">50+</span>
+          <div class="label">yearly events</div>
+        </div>
+        <div class="stat-badge">
+          <span class="number">15k+</span>
+          <div class="label">people served</div>
+        </div>
+        <div class="stat-badge">
+          <span class="number">200+</span>
+          <div class="label">active volunteers</div>
+        </div>
+      </div>
+
+      <!-- call to action specific to charity -->
+      <div style="text-align: center; margin-top: 40px">
+        <a
+          href="index.html#donate"
+          class="nav-link donate"
+          style="
+            font-size: 18px;
+            padding: 16px 48px;
+            display: inline-flex;
+            gap: 12px;
+          "
+        >
+          <i class="fas fa-hand-holding-heart"></i> support charity outreach
+        </a>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+      <p>© 2025 Coli Foundation · charity outreach · sharing hope</p>
+    </footer>
+
+    <script>
+      window.addEventListener("scroll", () => {
+        document
+          .querySelector(".navbar")
+          .classList.toggle("scrolled", window.scrollY > 10);
+      });
+    </script>
+  </body>
+</html>

@@ -3,503 +3,424 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Team Experience - Coli Initiatives</title>
+    <title>Sales Performance Review 2025-2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Lexend:wght@700&display=swap");
+
+      :root {
+        --slide-width: 1280px;
+        --slide-height: 720px;
       }
 
       body {
         font-family: "Inter", sans-serif;
-        background: #0a0a0a;
-        color: #ffffff;
-        overflow-x: hidden;
+        background-color: #0f172a;
+        color: #1e293b;
+        margin: 0;
+        padding-bottom: 50px;
       }
 
-      /* Floating Animation for team veiws */
-      @keyframes teamfloatRight {
-        0% {
-          transform: translateX(0px);
+      .slide {
+        width: var(--slide-width);
+        height: var(--slide-height);
+        background: white;
+        margin: 40px auto;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+      }
+
+      .slide-header {
+        padding: 40px 80px 20px 80px;
+      }
+
+      .slide-content {
+        padding: 20px 80px 60px 80px;
+        flex-grow: 1;
+      }
+
+      h1 {
+        font-family: "Lexend", sans-serif;
+        font-size: 48px;
+        color: #1e293b;
+      }
+      h2 {
+        font-family: "Lexend", sans-serif;
+        font-size: 32px;
+        color: #4f46e5;
+        border-left: 6px solid #4f46e5;
+        padding-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      .metric-card {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        padding: 24px;
+        border-radius: 16px;
+      }
+
+      .table-custom {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 8px;
+      }
+
+      .table-custom th {
+        text-align: left;
+        padding: 12px 20px;
+        color: #64748b;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .table-custom td {
+        padding: 16px 20px;
+        background: #f1f5f9;
+      }
+
+      .table-custom tr td:first-child {
+        border-radius: 12px 0 0 12px;
+        font-weight: 600;
+      }
+      .table-custom tr td:last-child {
+        border-radius: 0 12px 12px 0;
+      }
+
+      .growth-positive {
+        color: #16a34a;
+        font-weight: 700;
+      }
+      .growth-negative {
+        color: #dc2626;
+        font-weight: 700;
+      }
+
+      @media print {
+        .no-print {
+          display: none;
         }
-        50% {
-          transform: translateX(15px);
+        body {
+          background: white;
+          padding: 0;
         }
-        100% {
-          transform: translateX(0px);
+        .slide {
+          margin: 0;
+          box-shadow: none;
+          page-break-after: always;
+          border-radius: 0;
         }
-      }
-
-      @keyframes teamfloatUp {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
-      }
-
-      .float-right-text {
-        animation: teamfloatRight 6s ease-in-out infinite;
-      }
-
-      .float-up-text {
-        animation: teamfloatUp 5s ease-in-out infinite;
-      }
-
-      /* Gradient Text */
-      .gradient-text {
-        background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      /* Glass Card Effect */
-      .glass-card {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      /* Quote Mark Styling */
-      .quote-mark {
-        font-family: "Playfair Display", serif;
-        font-size: 120px;
-        line-height: 1;
-        color: rgba(59, 130, 246, 0.2);
-        position: absolute;
-        top: -20px;
-        left: -10px;
-      }
-
-      /* Decorative Elements */
-      .glow-orb {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(80px);
-        opacity: 0.4;
-        pointer-events: none;
-      }
-
-      /* Scroll Reveal */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s ease;
-      }
-
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: #0a0a0a;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: #3b82f6;
-        border-radius: 4px;
-      }
-
-      /* Image Hover Effect */
-      .team-image {
-        transition: all 0.5s ease;
-      }
-
-      .team-image:hover {
-        transform: scale(1.05) rotate(2deg);
-      }
-
-      /* Text Shadow for Readability */
-      .text-glow {
-        text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
       }
     </style>
   </head>
   <body>
-    <!-- Team Experience Section -->
-    <section
-      id="team-experience"
-      class="relative py-24 px-6 overflow-hidden bg-black"
+    <div
+      class="no-print bg-slate-800 p-4 sticky top-0 z-50 flex justify-center gap-4"
     >
-      <!-- Background Effects -->
-      <div class="glow-orb w-96 h-96 bg-blue-600/30 top-0 left-0"></div>
-      <div class="glow-orb w-80 h-80 bg-purple-600/20 bottom-0 right-0"></div>
+      <button
+        onclick="window.print()"
+        class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg"
+      >
+        <i class="fa-solid fa-file-pdf mr-2"></i> Export to PDF / Print
+      </button>
+      <p class="text-slate-400 self-center text-sm">
+        Scroll down to view all slides
+      </p>
+    </div>
 
-      <!-- Grid Pattern -->
+    <!-- Slide 1: Cover -->
+    <div
+      class="slide bg-slate-900 text-white justify-center items-center text-center"
+    >
+      <div class="absolute top-0 right-0 p-12 opacity-20">
+        <i class="fa-solid fa-chart-line text-[200px]"></i>
+      </div>
+      <div class="z-10">
+        <p class="text-indigo-400 font-bold tracking-[0.3em] uppercase mb-4">
+          Strategic Review
+        </p>
+        <h1 class="text-white text-7xl mb-6">
+          SALES PERFORMANCE<br />ANALYSIS
+        </h1>
+        <div class="h-1 w-32 bg-indigo-500 mx-auto mb-8"></div>
+        <p class="text-2xl text-slate-400">
+          Comparative Report: 2025 vs. 2026 (Jan - Feb)
+        </p>
+      </div>
       <div
-        class="absolute inset-0 opacity-5"
-        style="
-          background-image: radial-gradient(
-            circle at 1px 1px,
-            white 1px,
-            transparent 0
-          );
-          background-size: 40px 40px;
-        "
+        class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
       ></div>
+    </div>
 
-      <div class="max-w-7xl mx-auto relative z-10">
-        <!-- Section Header -->
-        <div class="text-center mb-20 reveal">
-          <span
-            class="inline-block px-4 py-2 bg-blue-600/10 border border-blue-500/30 rounded-full mb-4"
-          >
-            <span
-              class="text-blue-400 font-semibold text-sm tracking-wider uppercase"
-              >Our Team</span
-            >
-          </span>
-          <h2 class="text-4xl md:text-6xl font-bold mb-4">
-            Voices of <span class="gradient-text">Impact</span>
-          </h2>
+    <!-- Slide 2: Financial Totals & Growth -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>Financial Highlights</h2>
+      </div>
+      <div class="slide-content">
+        <div class="grid grid-cols-2 gap-8 mb-10">
+          <div class="metric-card bg-indigo-50 border-indigo-100">
+            <p class="text-indigo-600 font-bold text-sm uppercase">
+              Total Combined Sales (YTD 2026)
+            </p>
+            <p class="text-5xl font-bold mt-2">₦52,107,300</p>
+            <p class="text-slate-500 text-sm mt-2">
+              Combined Jan & Feb (Ogba, Dopemu & Taste)
+            </p>
+          </div>
+          <div class="metric-card bg-emerald-50 border-emerald-100">
+            <p class="text-emerald-600 font-bold text-sm uppercase">
+              YoY Growth Rate (Jan-Feb Combined)
+            </p>
+            <p class="text-5xl font-bold mt-2 text-emerald-700">+10.4%</p>
+            <p class="text-slate-500 text-sm mt-2">
+              Overall revenue increase compared to 2025
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6">
+          <div class="p-6 border border-slate-200 rounded-2xl text-center">
+            <p class="text-slate-500 font-bold text-xs uppercase mb-2">
+              Total 2025 (Jan-Feb)
+            </p>
+            <p class="text-2xl font-bold">₦40,800,745</p>
+          </div>
+          <div class="p-6 border border-slate-200 rounded-2xl text-center">
+            <p class="text-slate-500 font-bold text-xs uppercase mb-2">
+              Total 2026 (Jan-Feb)*
+            </p>
+            <p class="text-2xl font-bold">₦45,220,730</p>
+          </div>
           <div
-            class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-6"
-          ></div>
-          <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-            Hear from the dedicated individuals who bring our mission to life
-            every day
-          </p>
-        </div>
-
-        <!-- Team Member 1 -->
-        <div class="grid lg:grid-cols-2 gap-12 items-center mb-24 reveal">
-          <!-- Image Side -->
-          <div class="relative order-2 lg:order-1">
-            <div
-              class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
-            >
-              <div
-                class="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent z-10"
-              ></div>
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop"
-                alt="Sarah Johnson - Program Director"
-                class="team-image w-full h-[500px] object-cover"
-              />
-              <!-- Experience Badge -->
-              <div class="absolute bottom-6 left-6 z-20">
-                <div class="glass-card px-4 py-2 rounded-full">
-                  <span class="text-blue-400 font-semibold text-sm"
-                    >5 Years Experience</span
-                  >
-                </div>
-              </div>
-            </div>
-            <!-- Decorative Frame -->
-            <div
-              class="absolute -bottom-4 -right-4 w-full h-full border-2 border-blue-500/30 rounded-2xl -z-10"
-            ></div>
-          </div>
-
-          <!-- Content Side - Floating Right -->
-          <div class="order-1 lg:order-2 relative">
-            <div class="quote-mark">"</div>
-            <div class="float-right-text pl-8">
-              <div class="mb-6">
-                <h3 class="text-3xl font-bold text-white mb-2">
-                  Sarah Johnson
-                </h3>
-                <p class="text-blue-400 font-semibold text-lg">
-                  Program Director
-                </p>
-              </div>
-
-              <blockquote class="relative z-10">
-                <p
-                  class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-6 font-light italic"
-                >
-                  "Working with Coli Initiatives has transformed my perspective
-                  on community development. Every morning, I wake up knowing
-                  that the programs we design directly impact children's
-                  futures. The moment I see a child read their first book or
-                  graduate from our scholarship program, I'm reminded why this
-                  work matters."
-                </p>
-
-                <div class="space-y-4 text-gray-400">
-                  <p class="float-up-text" style="animation-delay: 0.5s">
-                    "I've spent five years building educational outreach
-                    programs across rural Nigeria. The challenges are
-                    real—limited resources, infrastructure gaps, and cultural
-                    barriers. But when a parent tells you their child is the
-                    first in the family to attend school, every obstacle becomes
-                    worth overcoming."
-                  </p>
-
-                  <p class="float-up-text" style="animation-delay: 1s">
-                    "My most profound experience was meeting Amina, a
-                    12-year-old who walked 3 hours daily to attend our makeshift
-                    classroom. Today, she's studying medicine at university.
-                    Stories like hers fuel my commitment to expanding our
-                    reach."
-                  </p>
-                </div>
-              </blockquote>
-
-              <!-- Signature -->
-              <div class="mt-8 pt-6 border-t border-white/10">
-                <p class="text-sm text-gray-500 uppercase tracking-wider">
-                  Key Achievement
-                </p>
-                <p class="text-white font-semibold mt-1">
-                  Launched 12 learning centers • 2,000+ students enrolled
-                </p>
-              </div>
-            </div>
+            class="p-6 border border-slate-200 rounded-2xl text-center bg-slate-50"
+          >
+            <p class="text-slate-500 font-bold text-xs uppercase mb-2">
+              Revenue Growth
+            </p>
+            <p class="text-2xl font-bold text-emerald-600">₦4,419,985</p>
           </div>
         </div>
+        <p class="text-[10px] text-slate-400 mt-8 italic">
+          *Comparison excludes "Taste" segment for direct Store-to-Store YoY
+          accuracy.
+        </p>
+      </div>
+    </div>
 
-        <!-- Team Member 2 -->
-        <div class="grid lg:grid-cols-2 gap-12 items-center mb-24 reveal">
-          <!-- Content Side - Floating Right (on mobile this comes first, on desktop image comes first) -->
-          <div class="relative order-1">
-            <div class="quote-mark">"</div>
-            <div class="float-right-text pl-8" style="animation-delay: 1s">
-              <div class="mb-6">
-                <h3 class="text-3xl font-bold text-white mb-2">
-                  Dr. Michael Okonkwo
-                </h3>
-                <p class="text-blue-400 font-semibold text-lg">
-                  Medical Outreach Lead
-                </p>
-              </div>
+    <!-- Slide 3: Store-by-Store Detail -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>Branch Performance Comparison</h2>
+      </div>
+      <div class="slide-content">
+        <table class="table-custom">
+          <thead>
+            <tr>
+              <th>Store / Period</th>
+              <th>2025 Sales</th>
+              <th>2026 Sales</th>
+              <th>Growth (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ogba (January)</td>
+              <td>₦18,366,598</td>
+              <td>₦17,509,794</td>
+              <td class="growth-negative">-4.7%</td>
+            </tr>
+            <tr>
+              <td>Ogba (February)</td>
+              <td>₦14,747,865</td>
+              <td>₦17,680,766</td>
+              <td class="growth-positive">+19.9%</td>
+            </tr>
+            <tr class="opacity-30">
+              <td colspan="4"><hr class="border-slate-300" /></td>
+            </tr>
+            <tr>
+              <td>Dopemu (January)</td>
+              <td>₦4,170,925</td>
+              <td>₦4,814,620</td>
+              <td class="growth-positive">+15.4%</td>
+            </tr>
+            <tr>
+              <td>Dopemu (February)</td>
+              <td>₦3,545,457</td>
+              <td>₦5,215,950</td>
+              <td class="growth-positive">+47.1%</td>
+            </tr>
+          </tbody>
+        </table>
 
-              <blockquote class="relative z-10">
-                <p
-                  class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-6 font-light italic"
-                >
-                  "Healthcare is a fundamental right, not a privilege. In my
-                  three years with Coli Initiatives, I've witnessed the
-                  devastating impact of preventable diseases in underserved
-                  communities. Our mobile clinics don't just treat symptoms—we
-                  restore dignity and hope."
-                </p>
-
-                <div class="space-y-4 text-gray-400">
-                  <p class="float-up-text" style="animation-delay: 1.5s">
-                    "I remember our first medical camp in a remote village. We
-                    arrived with basic equipment and a team of volunteers. By
-                    sunset, we had treated over 300 patients, performed
-                    emergency procedures, and identified critical cases
-                    requiring hospital referral."
-                  </p>
-
-                  <p class="float-up-text" style="animation-delay: 2s">
-                    "The most rewarding aspect is training local health workers.
-                    We're not just providing temporary relief; we're building
-                    sustainable healthcare systems. Last month, a community
-                    health worker I trained independently managed a malaria
-                    outbreak. That's true empowerment."
-                  </p>
-                </div>
-              </blockquote>
-
-              <!-- Signature -->
-              <div class="mt-8 pt-6 border-t border-white/10">
-                <p class="text-sm text-gray-500 uppercase tracking-wider">
-                  Key Achievement
-                </p>
-                <p class="text-white font-semibold mt-1">
-                  45,000+ patients treated • 15 health workers trained
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Image Side -->
-          <div class="relative order-2">
-            <div
-              class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
-            >
-              <div
-                class="absolute inset-0 bg-gradient-to-tl from-purple-600/20 to-transparent z-10"
-              ></div>
-              <img
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=1000&fit=crop"
-                alt="Dr. Michael Okonkwo - Medical Outreach Lead"
-                class="team-image w-full h-[500px] object-cover"
-              />
-              <!-- Experience Badge -->
-              <div class="absolute bottom-6 right-6 z-20">
-                <div class="glass-card px-4 py-2 rounded-full">
-                  <span class="text-blue-400 font-semibold text-sm"
-                    >3 Years Experience</span
-                  >
-                </div>
-              </div>
-            </div>
-            <!-- Decorative Frame -->
-            <div
-              class="absolute -top-4 -left-4 w-full h-full border-2 border-purple-500/30 rounded-2xl -z-10"
-            ></div>
-          </div>
-        </div>
-
-        <!-- Team Member 3 -->
-        <div class="grid lg:grid-cols-2 gap-12 items-center reveal">
-          <!-- Image Side -->
-          <div class="relative order-2 lg:order-1">
-            <div
-              class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
-            >
-              <div
-                class="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent z-10"
-              ></div>
-              <img
-                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&h=1000&fit=crop"
-                alt="Amara Nwosu - Community Engagement Manager"
-                class="team-image w-full h-[500px] object-cover"
-              />
-              <!-- Experience Badge -->
-              <div class="absolute bottom-6 left-6 z-20">
-                <div class="glass-card px-4 py-2 rounded-full">
-                  <span class="text-blue-400 font-semibold text-sm"
-                    >4 Years Experience</span
-                  >
-                </div>
-              </div>
-            </div>
-            <!-- Decorative Frame -->
-            <div
-              class="absolute -bottom-4 -right-4 w-full h-full border-2 border-blue-500/30 rounded-2xl -z-10"
-            ></div>
-          </div>
-
-          <!-- Content Side - Floating Right -->
-          <div class="order-1 lg:order-2 relative">
-            <div class="quote-mark">"</div>
-            <div class="float-right-text pl-8" style="animation-delay: 2s">
-              <div class="mb-6">
-                <h3 class="text-3xl font-bold text-white mb-2">Amara Nwosu</h3>
-                <p class="text-blue-400 font-semibold text-lg">
-                  Community Engagement Manager
-                </p>
-              </div>
-
-              <blockquote class="relative z-10">
-                <p
-                  class="text-xl md:text-2xl text-gray-300 leading-relaxed mb-6 font-light italic"
-                >
-                  "Building bridges between our organization and the communities
-                  we serve requires authenticity and deep listening. I grew up
-                  in one of the villages we now support, so every program we
-                  launch feels deeply personal."
-                </p>
-
-                <div class="space-y-4 text-gray-400">
-                  <p class="float-up-text" style="animation-delay: 2.5s">
-                    "My role involves understanding unique community needs,
-                    navigating cultural nuances, and ensuring our interventions
-                    are sustainable. When we proposed a girls' education
-                    initiative, I worked with village elders for months to
-                    address their concerns. Today, that program has 500 enrolled
-                    students."
-                  </p>
-
-                  <p class="float-up-text" style="animation-delay: 3s">
-                    "The community doesn't just receive our help—they shape it.
-                    Our most successful programs emerged from listening sessions
-                    under mango trees, where mothers shared their dreams for
-                    their children. That's the Coli difference: we serve with,
-                    not for."
-                  </p>
-                </div>
-              </blockquote>
-
-              <!-- Signature -->
-              <div class="mt-8 pt-6 border-t border-white/10">
-                <p class="text-sm text-gray-500 uppercase tracking-wider">
-                  Key Achievement
-                </p>
-                <p class="text-white font-semibold mt-1">
-                  Established partnerships with 25 communities • 90% program
-                  retention rate
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="text-center mt-24 reveal">
-          <p class="text-gray-400 text-lg mb-6">Inspired by their stories?</p>
-          <div class="flex flex-wrap justify-center gap-4">
-            <a
-              href="#join"
-              class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-blue-600/30"
-            >
-              <span>Join Our Team</span>
-              <svg
-                class="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
-            <a
-              href="#volunteer"
-              class="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/20 hover:border-blue-500 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-blue-600/10"
-            >
-              <span>Volunteer</span>
-            </a>
+        <div
+          class="mt-8 p-6 bg-slate-900 text-white rounded-2xl flex items-center gap-6"
+        >
+          <i class="fa-solid fa-lightbulb text-indigo-400 text-3xl"></i>
+          <div>
+            <h4 class="font-bold">Key Insight</h4>
+            <p class="text-slate-400 text-sm">
+              Dopemu has shown explosive growth in February (+47.1%),
+              effectively offsetting the slight dip Ogba experienced in January.
+            </p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <script>
-      // Scroll Reveal Animation
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
+    <!-- Slide 4: Efficiency & Transactions (2026) -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>Transaction Analysis (2026)</h2>
+      </div>
+      <div class="slide-content">
+        <div class="grid grid-cols-2 gap-8">
+          <div>
+            <h3
+              class="font-bold text-slate-500 uppercase text-xs tracking-widest mb-4"
+            >
+              Volume & Efficiency
+            </h3>
+            <table class="w-full text-sm">
+              <tr class="border-b">
+                <td class="py-3 font-semibold">Ogba Total Transactions</td>
+                <td class="py-3 text-right">9,896</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-3 font-semibold">Dopemu Total Transactions</td>
+                <td class="py-3 text-right">3,231</td>
+              </tr>
+              <tr class="border-b">
+                <td class="py-3 font-semibold">Taste Total Transactions</td>
+                <td class="py-3 text-right">1,186</td>
+              </tr>
+            </table>
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
-        });
-      }, observerOptions);
+            <div class="mt-8 p-6 bg-indigo-600 text-white rounded-2xl">
+              <p class="text-xs uppercase font-bold opacity-70">
+                Sales Per Transaction (Avg Basket)
+              </p>
+              <p class="text-3xl font-bold mt-1">₦3,556.23</p>
+              <p class="text-xs mt-2 opacity-80 italic">
+                Calculated across all 14,313 transactions in 2026.
+              </p>
+            </div>
+          </div>
 
-      document
-        .querySelectorAll(".reveal")
-        .forEach((el) => observer.observe(el));
+          <div class="space-y-4">
+            <div class="metric-card">
+              <p class="text-xs font-bold text-slate-500">OGBA AVG SALES/TXN</p>
+              <div class="flex justify-between items-end">
+                <p class="text-2xl font-bold">₦3,556</p>
+                <span
+                  class="text-[10px] bg-slate-200 px-2 py-1 rounded text-slate-600"
+                  >Stable</span
+                >
+              </div>
+            </div>
+            <div class="metric-card">
+              <p class="text-xs font-bold text-slate-500">
+                DOPEMU AVG SALES/TXN
+              </p>
+              <div class="flex justify-between items-end">
+                <p class="text-2xl font-bold">₦3,104</p>
+                <span
+                  class="text-[10px] bg-emerald-100 px-2 py-1 rounded text-emerald-600"
+                  >High Growth</span
+                >
+              </div>
+            </div>
+            <div class="metric-card">
+              <p class="text-xs font-bold text-slate-500">
+                TASTE AVG SALES/TXN
+              </p>
+              <div class="flex justify-between items-end">
+                <p class="text-2xl font-bold">₦5,554</p>
+                <span
+                  class="text-[10px] bg-indigo-100 px-2 py-1 rounded text-indigo-600"
+                  >Premium Basket</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      // Parallax Effect on Scroll
-      window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
-        const orbs = document.querySelectorAll(".glow-orb");
+    <!-- Slide 5: Taste Segment Deep Dive -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>Dopemu Taste Review (2026)</h2>
+      </div>
+      <div class="slide-content flex flex-col justify-center">
+        <div class="grid grid-cols-3 gap-8">
+          <div class="col-span-1 flex flex-col gap-4">
+            <div class="bg-amber-50 p-6 rounded-2xl border border-amber-100">
+              <p class="text-amber-700 font-bold text-xs uppercase">
+                January Sales
+              </p>
+              <p class="text-3xl font-bold text-amber-900">₦4,814,620</p>
+              <p class="text-slate-500 text-xs mt-1">616 Transactions</p>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+              <p class="text-slate-500 font-bold text-xs uppercase">
+                February Sales
+              </p>
+              <p class="text-3xl font-bold text-slate-900">₦1,772,550</p>
+              <p class="text-slate-500 text-xs mt-1">570 Transactions</p>
+            </div>
+          </div>
 
-        orbs.forEach((orb, index) => {
-          const speed = 0.5 + index * 0.2;
-          orb.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-      });
-    </script>
+          <div
+            class="col-span-2 bg-slate-50 rounded-3xl p-8 border border-slate-200 relative overflow-hidden"
+          >
+            <div class="relative z-10">
+              <h3 class="text-xl font-bold mb-4">Segment Performance Note</h3>
+              <p class="text-slate-600 leading-relaxed mb-6">
+                The <strong>Dopemu Taste</strong> segment shows a significant
+                variance between January and February. While transaction volume
+                remained relatively stable (dropping by only 7%), the total
+                revenue dropped by <strong>63%</strong>.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold"
+                  >
+                    !
+                  </div>
+                  <p class="text-sm font-semibold">
+                    Drastic Drop in Average Transaction Value (ATV)
+                  </p>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-10 h-10 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold"
+                  >
+                    ?
+                  </div>
+                  <p class="text-sm font-semibold">
+                    Review high-ticket item availability in February
+                  </p>
+                </div>
+              </div>
+            </div>
+            <i
+              class="fa-solid fa-utensils absolute -bottom-10 -right-10 text-[200px] text-slate-200/50"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
