@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coli Foundation · application received</title>
+    <title>Application Received | Children of Light Initiatives</title>
     <!-- Fonts & Icons -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -497,37 +496,42 @@
         }
       }
     </style>
+    <link rel="stylesheet" href="site-polish.css" />
     <link
       rel="icon"
       type="image/x-icon"
       href="https://res.cloudinary.com/deoqw88yb/image/upload/v1771578729/Copilot_20260220_100514_hkz9fy.png"
     />
   </head>
-  <body>
+  <body class="inner-page">
     <!-- Navbar (same as your theme) -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <a href="#home" class="logo">
-          <div class="logo-icon">
-            <img
-              src="https://res.cloudinary.com/deoqw88yb/image/upload/v1771578462/Copilot_20260220_100618_g9l2ts.png"
-              alt=""
-              height="42px"
-            />
-          </div>
-          <span class="logo-text">Coli Initiatives</span>
-        </a>
-        <ul class="nav-menu">
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="index.html" class="logo" aria-label="Children of Light Initiatives homepage">
+      <span class="logo-icon"><img src="https://res.cloudinary.com/deoqw88yb/image/upload/v1771578462/Copilot_20260220_100618_g9l2ts.png" alt="" width="43" height="43" /></span>
+      <span class="logo-text">Coli Initiatives</span>
+    </a>
+    <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="index.html#programs" class="nav-link">Programs</a></li>
           <li><a href="index.html#gallery" class="nav-link">Gallery</a></li>
-          <li><a href="#" class="nav-link donate">Donate</a></li>
-        </ul>
-
-        <!-- mobile toggle (simplified) -->
-        <button class="mobile-toggle" style="display: none">☰</button>
-      </div>
-    </nav>
+          <li><a href="reports.html" class="nav-link">Annual Reports</a></li>
+          <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+          <li><a href="index.html#donate" class="nav-link donate">Donate</a></li>
+    </ul>
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" /></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="reports.html">Annual Reports</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="index.html#donate" class="donate">Donate</a>
+  </div>
+</nav>
 
     <!-- CONFIRMATION DISPLAY MODEL (application received) -->
     <section class="confirmation-page">
@@ -588,9 +592,22 @@
     </section>
 
     <!-- simple footer -->
-    <footer class="footer">
-      <p>© 2025 Coli Foundation · together we build futures</p>
-    </footer>
+    <footer class="site-footer">
+  <div class="site-footer-grid">
+    <div class="site-footer-brand">
+      <strong>Children of Light Initiatives</strong>
+      <p>Working with communities to advance education, dignity, and lasting opportunity.</p>
+    </div>
+    <div class="site-footer-links" aria-label="Footer links">
+      <a href="index.html">Home</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="reports.html">Annual Reports</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="mailto:col.initiatives.info@gmail.com">Contact</a>
+    </div>
+  </div>
+  <div class="site-footer-bottom">© 2026 Children of Light Initiatives. All rights reserved.</div>
+</footer>
 
     <!-- tiny script to handle navbar scrolled effect -->
     <script>
@@ -600,5 +617,6 @@
         else navbar.classList.remove("scrolled");
       });
     </script>
+  <script src="site-navigation.js" defer></script>
   </body>
 </html>

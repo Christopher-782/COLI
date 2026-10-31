@@ -83,10 +83,8 @@ async function loadGallery() {
 }
 
 function escapeHtml(text) {
-  if (!text) return "";
-  const div = document.createElement("div");
-  div.textContent = text;
-  return div.innerHTML;
+  if (text == null) return "";
+  return String(text).replace(/[&<>"']/g, c => ({"&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;", "'":"&#39;"}[c]));
 }
 
 function updateGallerySlidePosition() {
@@ -107,11 +105,13 @@ function goToGallerySlide(index) {
 }
 
 function nextGallerySlide() {
+  if (!gallerySlides.length) return;
   galleryIndex = (galleryIndex + 1) % gallerySlides.length;
   updateGallerySlidePosition();
 }
 
 function prevGallerySlide() {
+  if (!gallerySlides.length) return;
   galleryIndex =
     (galleryIndex - 1 + gallerySlides.length) % gallerySlides.length;
   updateGallerySlidePosition();
@@ -133,68 +133,42 @@ function resetGalleryAutoAdvance() {
 // --------------------
 // Hero Carousel
 // --------------------
+const heroSlides = Array.from(document.querySelectorAll('.hero-slide'));
+const heroDots = Array.from(document.querySelectorAll('.slide-indicator'));
 let heroIndex = 0;
-const heroSlides = document.querySelectorAll(".hero-slide");
-const heroDots = document.querySelectorAll(".slide-indicator");
-
+let heroTimer;
 function updateHeroSlide(index) {
-  heroSlides.forEach((slide, i) => {
-    slide.classList.toggle("active", i === index);
-  });
+  if (!heroSlides.length) return;
+  heroIndex = (index + heroSlides.length) % heroSlides.length;
+  heroSlides.forEach((slide, i) => slide.classList.toggle('active', i === heroIndex));
   heroDots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === index);
+    dot.classList.toggle('active', i === heroIndex);
+    dot.setAttribute('aria-label', `Go to image ${i + 1}`);
+    dot.setAttribute('aria-current', String(i === heroIndex));
   });
-  heroIndex = index;
+  const currentSlide = document.getElementById('currentSlide');
+  if (currentSlide) currentSlide.textContent = String(heroIndex + 1).padStart(2, '0');
 }
-
-function nextHeroSlide() {
-  updateHeroSlide((heroIndex + 1) % heroSlides.length);
+function startHeroTimer() {
+  clearInterval(heroTimer);
+  if (heroSlides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    heroTimer = setInterval(() => updateHeroSlide(heroIndex + 1), 8000);
+  }
 }
+// Used by the existing inline image indicator handlers.
+window.goToSlide = function(index) {
+  updateHeroSlide(index);
+  startHeroTimer();
+};
 
-function prevHeroSlide() {
-  updateHeroSlide((heroIndex - 1 + heroSlides.length) % heroSlides.length);
-}
-
-// Auto-advance every 8 seconds
-setInterval(nextHeroSlide, 8000);
-
-// Hook up indicators
-heroDots.forEach((dot) => {
-  dot.addEventListener("click", () => {
-    const index = parseInt(dot.dataset.slide);
-    updateHeroSlide(index);
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Gallery setup
-  loadGallery();
-  const prevBtn = document.getElementById("prevSlide");
-  const nextBtn = document.getElementById("nextSlide");
-  if (prevBtn)
-    prevBtn.addEventListener("click", () => {
-      prevGallerySlide();
-      resetGalleryAutoAdvance();
-    });
-  if (nextBtn)
-    nextBtn.addEventListener("click", () => {
-      nextGallerySlide();
-      resetGalleryAutoAdvance();
-    });
-
-  // Hero setup
-  document.getElementById("prevHero").addEventListener("click", () => {
-    updateHeroSlide((heroIndex - 1 + 2) % 2);
-  });
-  document.getElementById("nextHero").addEventListener("click", () => {
-    updateHeroSlide((heroIndex + 1) % 2);
-  });
-  document.querySelectorAll(".hero-dot").forEach((dot) => {
-    dot.addEventListener("click", () =>
-      updateHeroSlide(parseInt(dot.dataset.index)),
-    );
-  });
-  setInterval(() => updateHeroSlide((heroIndex + 1) % 2), 5000);
+window.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('galleryLoading')) loadGallery();
+  const prevBtn = document.getElementById('prevSlide');
+  const nextBtn = document.getElementById('nextSlide');
+  if (prevBtn) prevBtn.addEventListener('click', () => { prevGallerySlide(); resetGalleryAutoAdvance(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { nextGallerySlide(); resetGalleryAutoAdvance(); });
+  updateHeroSlide(0);
+  startHeroTimer();
 });
 // team veiw
 const observerOptions = {
